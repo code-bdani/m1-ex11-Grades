@@ -15,7 +15,8 @@ A score of 81-90 is a B
 A score of 91-100 is an A
 Start with array of random scores in your JavaScript
 
-```const scores = [82, 71, 62, 95, 55, 98, 69, 72, 78, 84, 64, 58, 87, 60]
+```
+const scores = [82, 71, 62, 95, 55, 98, 69, 72, 78, 84, 64, 58, 87, 60]
 const grades = {} // You'll need to change this line of code
 
 for (let i = 0; i < scores.length; i++) {
@@ -26,7 +27,8 @@ for (let i = 0; i < scores.length; i++) {
       also achieve this with a switch statement.
     */
 }
-Use console.log() to output the following criteria to the browser console.```
+Use console.log() to output the following criteria to the browser console.
+```
 
 1. How many of each grade? Accomplish this with a `for..in` loop.
 2. What is the lowest score? Sort the array and find out.

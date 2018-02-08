@@ -1,7 +1,38 @@
-const scores = [82, 71, 62, 95, 55, 98, 69, 72, 78, 84, 64, 58, 87, 60]
-const grades = {} // You'll need to change this line of code
+const scores = [82, 71, 62, 95, 55, 98, 69, 72, 78, 84, 64, 58, 87, 60];
+// You'll need to change this line of code
+const grades = {a:0, b:0, c:0, d:0, f:0};
 
 for (let i = 0; i < scores.length; i++) {
+  switch (true) {
+    case (scores[i] >= 91 && scores[i] <= 100):
+      grades.a += 1;
+      console.log("Letter Grade of A", scores[i]);
+      break;
+
+    case (scores[i] >= 81 && scores[i] < 91):
+      grades.b += 1;
+      console.log("Letter Grade of B", scores[i]);
+      break;
+
+    case (scores[i] >= 71 && scores[i] < 81):
+      grades.c += 1;
+      console.log("Letter Grade of C", scores[i]);
+      break;
+
+    case (scores[i] >= 61 && scores[i] < 71):
+      grades.d += 1;
+      console.log("Letter Grade of D", scores[i]);
+      break;
+
+    case (scores[i] < 61):
+      grades.f += 1;
+      console.log("Letter Grade of F", scores[i]);
+      break;
+  
+    default:
+      console.log("ERROR!");
+      break;
+  }
     /*
       If the score is greater than 90, increment grades.A by 1.
 
@@ -10,68 +41,31 @@ for (let i = 0; i < scores.length; i++) {
     */
 }
 
-// const scores = [82, 71, 62, 95, 55, 98, 69, 72, 78, 84, 64, 58, 87, 60]
-// const grades = {a:0, b:0, c:0, d:0, f:0}
+console.log("grades", grades);
 
-// for (let i = 0; i < scores.length; i++) {
-//     switch(true) {
-//         case (scores[i] >= 91 && scores[i] <= 100):
-//             grades.a += 1;
-//             console.log("in for", scores[i]);
-//             break;
+var lowAndHigh = scores.sort(function(a, b){return a - b});
+console.log("Lowest Score", lowAndHigh[0]);
+console.log("Highest Score", lowAndHigh[lowAndHigh.length - 1]);
 
-//         case (scores[i] >= 81 && scores[i] < 91):
-//             grades.b += 1;
-//             console.log("in for", scores[i]);
-//             break;
-        
-//         case (scores[i] >= 71 && scores[i] < 81):
-//             grades.c += 1;
-//             console.log("in for", scores[i]);
-//             break; 
-            
-//         case (scores[i] >= 61 && scores[i] < 71):
-//             grades.d += 1;
-//             console.log("in for", scores[i]);
-//             break;
-            
-//         case (scores[i] < 61): 
-//             grades.f += 1;
-//             console.log("in for", scores[i]);
-//             break;
-    
-//         default:
-//             console.log("ERROR!");
-//     }
-// }
+var currentGradeCount = 0;
+var mostFrequent = [];
 
-// var lowHigh = scores.sort(function(a, b){return a - b});
+for (var x in grades) {
+  if (grades[x] > currentGradeCount) {
+    mostFrequent = [x];
+    currentGradeCount = grades[x];
+  } else if (grades[x] === currentGradeCount) {
+    mostFrequent.push(x);
+  }
 
-// console.log("lowest",lowHigh[0]);
-// console.log("highest",lowHigh[lowHigh.length - 1]);
+  if (grades[x] < newGradeCount) {
+    var leastFrequent = [x];
+    var newGradeCount = grades[x];
+  } else if (grades === newGradeCount) {
+    leastFrequent.push(x);
+  }
+}
 
-// var currentGradeCount = 0;
-// var mostFrequent = []; 
-
-// var newGradeCount = 100;
-// var leastFrequent = [];
-// for (var x in grades) {
-//     if (grades[x] > currentGradeCount) {
-//         mostFrequent = [x];
-//         currentGradeCount = grades[x];
-//     } else if (grades[x] === currentGradeCount){
-//         mostFrequent.push(x);
-//     } 
-    
-//     if (grades[x] < newGradeCount) {
-//         leastFrequent = [x];
-//         newGradeCount = grades[x];
-//         } else if (grades[x] === newGradeCount) {
-//             leastFrequent.push(x);
-//         }
-
-// }
-// console.log("least frequent", leastFrequent);
-// console.log("most frequent", mostFrequent);
-// console.log(lowHigh);
-// console.log(grades);
+console.log("currentGradeCount", currentGradeCount);
+console.log("most frequent", mostFrequent);
+console.log("least frequent", leastFrequent);
